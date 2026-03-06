@@ -22,3 +22,7 @@
   - [x] Add iOS Waitlist section
   - [x] Add Footer (Privacy Policy, terms, contact)
   - [x] Final responsive polish
+- [x] 5. Modular Refactor -> `[ x ]` Completed
+  - [x] Extract DigitalWellnessAlert component
+  - [x] Extract Hero Section component
+  - [x] Clean up App.tsx to just be layout wrapper
