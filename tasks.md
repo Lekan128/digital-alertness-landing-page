@@ -9,5 +9,7 @@
   - [x] Build Hero Section with Headline, Subhead, and primary/secondary CTAs
   - [x] Build visual placeholder for app usage video
 - [ ] 2. Privacy & Comparison -> `[ / ]` In Progress
+  - [ ] Privacy by Design section
+  - [ ] Competitive Advantage table
 - [ ] 3. Research & Science
 - [ ] 4. Waitlist & Polish

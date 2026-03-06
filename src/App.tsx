@@ -148,6 +148,103 @@ function App() {
 
         </div>
       </main>
+
+      {/* Privacy by Design Section */}
+      <section className="py-24 bg-white relative z-10 border-t border-slate-100">
+        <div className="container mx-auto px-6 md:px-12">
+          <div className="max-w-4xl mx-auto text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-slate-900 mb-6">
+              Privacy by Design. <br className="md:hidden" />
+              <span className="text-pink-500">Zero Compromise.</span>
+            </h2>
+            <p className="text-lg text-slate-600 leading-relaxed">
+              Our PbD framework ensures your data never leaves your device. No internet access, no signup, and no login—effectively neutralizing the primary security risks associated with mobile applications. It works seamlessly in the background and only requires a minimal, one-time setup.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            <div className="bg-slate-50 rounded-3xl p-8 border border-slate-100 transition-transform duration-300 hover:-translate-y-2 hover:shadow-lg">
+              <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center mb-6 shadow-sm border border-slate-100 text-pink-500">
+                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+              </div>
+              <h3 className="text-xl font-semibold text-slate-900 mb-3">No Internet Required</h3>
+              <p className="text-slate-600 text-sm leading-relaxed">Runs entirely offline. Your habits and usage stats are stored locally, giving you profound peace of mind.</p>
+            </div>
+            <div className="bg-slate-50 rounded-3xl p-8 border border-slate-100 transition-transform duration-300 hover:-translate-y-2 hover:shadow-lg">
+              <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center mb-6 shadow-sm border border-slate-100 text-pink-500">
+                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+              </div>
+              <h3 className="text-xl font-semibold text-slate-900 mb-3">No Accounts or Signups</h3>
+              <p className="text-slate-600 text-sm leading-relaxed">Skip the tedious onboarding. Download, open once, and let it safeguard your time anonymously.</p>
+            </div>
+            <div className="bg-slate-50 rounded-3xl p-8 border border-slate-100 transition-transform duration-300 hover:-translate-y-2 hover:shadow-lg">
+              <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center mb-6 shadow-sm border border-slate-100 text-pink-500">
+                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+              </div>
+              <h3 className="text-xl font-semibold text-slate-900 mb-3">Zero Data Collection</h3>
+              <p className="text-slate-600 text-sm leading-relaxed">No telemetry, no tracking pixels, no hidden analytics. We literally don't want your data.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Comparison Section */}
+      <section className="py-24 bg-slate-50 relative z-10 border-t border-slate-200">
+        <div className="container mx-auto px-6 md:px-12">
+          <div className="max-w-4xl mx-auto text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-slate-900 mb-6">
+              The Competitive Advantage
+            </h2>
+            <p className="text-lg text-slate-600 leading-relaxed">
+              See why taking a minimal, privacy-first approach sets Digital Alertness apart from alternatives.
+            </p>
+          </div>
+
+          <div className="max-w-5xl mx-auto overflow-hidden bg-white rounded-3xl border border-slate-200 shadow-sm">
+            <div className="overflow-x-auto">
+              <table className="w-full text-left border-collapse min-w-[800px]">
+                <thead>
+                  <tr>
+                    <th className="p-6 text-slate-500 font-medium text-sm border-b border-slate-200 w-1/4">Feature</th>
+                    <th className="p-6 bg-pink-50/50 text-pink-600 font-bold text-lg border-b border-pink-100 text-center relative w-1/4">
+                      Digital Alertness
+                      <div className="absolute top-0 left-0 right-0 h-1 bg-pink-500"></div>
+                    </th>
+                    <th className="p-6 text-slate-900 font-semibold text-center border-b border-slate-200 w-1/4">Native "Digital Wellbeing"</th>
+                    <th className="p-6 text-slate-900 font-semibold text-center border-b border-slate-200 w-1/4">Premium Suites</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-100">
+                  <tr className="hover:bg-slate-50/50 transition-colors">
+                    <td className="p-6 font-medium text-slate-900">Internet</td>
+                    <td className="p-6 bg-pink-50/30 text-pink-600 font-medium text-center text-sm border-x border-pink-50/50">Not Required</td>
+                    <td className="p-6 text-slate-500 text-center text-sm">Required</td>
+                    <td className="p-6 text-slate-500 text-center text-sm">Required</td>
+                  </tr>
+                  <tr className="hover:bg-slate-50/50 transition-colors">
+                    <td className="p-6 font-medium text-slate-900">User Registration</td>
+                    <td className="p-6 bg-pink-50/30 text-pink-600 font-medium text-center text-sm border-x border-pink-50/50">None</td>
+                    <td className="p-6 text-slate-500 text-center text-sm">Google/Apple Account</td>
+                    <td className="p-6 text-slate-500 text-center text-sm">Subscription Required</td>
+                  </tr>
+                  <tr className="hover:bg-slate-50/50 transition-colors">
+                    <td className="p-6 font-medium text-slate-900">Data Collection</td>
+                    <td className="p-6 bg-pink-50/30 text-pink-600 font-medium text-center text-sm border-x border-pink-50/50">Zero</td>
+                    <td className="p-6 text-slate-500 text-center text-sm">High</td>
+                    <td className="p-6 text-slate-500 text-center text-sm">High</td>
+                  </tr>
+                  <tr className="hover:bg-slate-50/50 transition-colors">
+                    <td className="p-6 font-medium text-slate-900">Interruption Method</td>
+                    <td className="p-6 bg-pink-50/30 text-pink-600 font-medium text-center text-sm border-x border-pink-50/50">Configurable Alert</td>
+                    <td className="p-6 text-slate-500 text-center text-sm">Silent Limit/Grayscale</td>
+                    <td className="p-6 text-slate-500 text-center text-sm">Content Filtering/Blocking</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
