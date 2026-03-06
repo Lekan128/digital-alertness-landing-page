@@ -1,23 +1,22 @@
 import { useState } from 'react';
 import { Play } from 'lucide-react';
 import { motion } from 'framer-motion';
+import appIcon from '../assets/images/app icon.png';
 
 function App() {
   const [showIosAlert, setShowIosAlert] = useState(false);
 
   return (
-    <div className="min-h-screen bg-black text-white selection:bg-pink-500/30 overflow-hidden relative font-sans">
+    <div className="min-h-screen bg-[#F8F9FA] text-slate-900 selection:bg-pink-500/30 overflow-hidden relative font-sans">
       
       {/* Background Glow Effects */}
-      <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] bg-pink-600/20 blur-[120px] rounded-full pointer-events-none" />
-      <div className="absolute bottom-[-10%] right-[-5%] w-[40%] h-[40%] bg-gray-600/20 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] bg-pink-500/10 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-[-10%] right-[-5%] w-[40%] h-[40%] bg-blue-500/10 blur-[120px] rounded-full pointer-events-none" />
       
       {/* Navigation Bar */}
-      <nav className="w-full absolute top-0 left-0 py-6 px-6 md:px-12 flex items-center justify-between z-10 glass-effect border-b-0 backdrop-blur-md bg-black/40">
+      <nav className="w-full absolute top-0 left-0 py-6 px-6 md:px-12 flex items-center justify-between z-10 bg-white/60 backdrop-blur-md border-b border-slate-200/50">
         <div className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded-lg bg-pink-500 flex items-center justify-center flex-shrink-0 shadow-[0_0_15px_rgba(236,72,153,0.5)]">
-            <span className="text-white font-bold text-lg leading-none">D</span>
-          </div>
+          <img src={appIcon} alt="Digital Alertness Logo" className="w-10 h-10 object-contain drop-shadow-[0_0_10px_rgba(236,72,153,0.2)]" />
           <span className="font-semibold text-lg tracking-tight">Digital Alertness</span>
         </div>
       </nav>
@@ -33,27 +32,27 @@ function App() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="flex flex-col gap-6 max-w-2xl"
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-500/10 border border-pink-500/20 text-pink-400 text-sm font-medium w-max mb-2">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-50 border border-pink-100 text-pink-600 text-sm font-medium w-max mb-2 shadow-sm">
               <span className="w-2 h-2 rounded-full bg-pink-500 animate-pulse"></span>
               Privacy-First Wellbeing
             </div>
             
-            <h1 className="text-5xl md:text-7xl font-bold tracking-tight leading-[1.1]">
+            <h1 className="text-5xl md:text-7xl font-bold tracking-tight leading-[1.1] text-slate-900">
               Reclaim Your Time. <br/>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-200 to-gray-500">
+              <span className="text-slate-800">
                 Break the <br className="hidden md:block"/>Doom-Scroll Loop.
               </span>
             </h1>
             
-            <p className="text-lg md:text-xl text-gray-400 leading-relaxed max-w-xl font-light">
+            <p className="text-lg md:text-xl text-slate-600 leading-relaxed max-w-xl font-light">
               A privacy-first digital wellbeing app that gently nudges you every 20 minutes. 
-              <span className="text-gray-300 font-medium"> No internet, no signups, no data harvesting.</span>
+              <span className="text-slate-800 font-medium"> No internet, no signups, no data harvesting.</span>
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 mt-4">
               <a 
                 href="#"
-                className="group relative flex items-center justify-center gap-3 bg-[var(--color-primary)] hover:bg-[var(--color-primary-dark)] transition-all duration-300 text-white px-8 py-4 rounded-2xl font-semibold shadow-[0_0_30px_rgba(236,72,153,0.3)] hover:shadow-[0_0_40px_rgba(236,72,153,0.5)] active:scale-95"
+                className="group relative flex items-center justify-center gap-3 bg-[var(--color-primary)] hover:bg-[var(--color-primary-dark)] transition-all duration-300 text-white px-8 py-4 rounded-2xl font-semibold shadow-[0_4px_14px_rgba(236,72,153,0.3)] hover:shadow-[0_6px_20px_rgba(236,72,153,0.4)] active:scale-95"
               >
                 <div className="bg-white/20 p-1.5 rounded-full">
                   <Play size={18} className="fill-white" />
@@ -63,7 +62,7 @@ function App() {
               
               <button 
                 onClick={() => setShowIosAlert(true)}
-                className="group relative flex items-center justify-center gap-3 bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-300 text-white px-8 py-4 rounded-2xl font-medium active:scale-95 backdrop-blur-sm"
+                className="group relative flex items-center justify-center gap-3 bg-white hover:bg-slate-50 border border-slate-200 transition-all duration-300 text-slate-700 px-8 py-4 rounded-2xl font-medium active:scale-95 shadow-sm"
               >
                 <svg viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 opacity-70 group-hover:opacity-100 transition-opacity">
                   <path d="M12 2C6.477 2 2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.879V15.34h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 3.34h-2.33v6.539C18.343 21.128 22 16.991 22 12c0-5.523-4.477-10-10-10z" className="hidden" />
@@ -77,7 +76,7 @@ function App() {
               <motion.div 
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="text-pink-400 text-sm mt-2 flex items-center gap-2"
+                className="text-pink-500 text-sm mt-3 flex items-center gap-2 font-medium bg-pink-50 w-max px-3 py-1.5 rounded-lg border border-pink-100"
               >
                 <div className="w-1.5 h-1.5 rounded-full bg-pink-500"></div>
                 We're perfecting the iOS experience. Join the waitlist soon!
@@ -93,36 +92,36 @@ function App() {
             className="relative lg:ml-auto w-full max-w-sm mx-auto lg:max-w-none"
           >
             {/* Decorative elements behind the phone */}
-            <div className="absolute top-10 right-10 w-32 h-32 bg-pink-500/20 rounded-full blur-3xl"></div>
-            <div className="absolute bottom-10 left-10 w-40 h-40 bg-blue-500/20 rounded-full blur-3xl"></div>
+            <div className="absolute top-10 right-10 w-32 h-32 bg-pink-400/20 rounded-full blur-3xl"></div>
+            <div className="absolute bottom-10 left-10 w-40 h-40 bg-blue-400/20 rounded-full blur-3xl"></div>
             
-            <div className="relative mx-auto w-[280px] h-[580px] bg-black rounded-[50px] border-[8px] border-zinc-800 shadow-2xl overflow-hidden glass-effect flex flex-col justify-center items-center">
+            <div className="relative mx-auto w-[280px] h-[580px] bg-white rounded-[50px] border-[8px] border-slate-100 shadow-2xl overflow-hidden flex flex-col justify-center items-center ring-1 ring-slate-200">
               {/* Dynamic Island Placeholder */}
-              <div className="absolute top-4 w-24 h-7 bg-zinc-900 rounded-full z-20"></div>
+              <div className="absolute top-4 w-24 h-7 bg-slate-900 rounded-full z-20"></div>
               
               {/* Video Placeholder Content */}
-              <div className="w-full h-full relative flex flex-col items-center justify-center p-6 bg-gradient-to-b from-zinc-900 to-black">
+              <div className="w-full h-full relative flex flex-col items-center justify-center p-6 bg-gradient-to-b from-white to-slate-50">
                 
                 {/* Simulated App UI */}
                 <motion.div 
                   animate={{ y: [0, -10, 0] }}
                   transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                  className="w-32 h-32 rounded-full border-4 border-pink-500/30 flex items-center justify-center shadow-[0_0_30px_rgba(236,72,153,0.15)] relative mb-12"
+                  className="w-32 h-32 rounded-full border-4 border-pink-500/20 flex items-center justify-center shadow-[0_0_20px_rgba(236,72,153,0.1)] relative mb-12 bg-white"
                 >
-                  <div className="absolute inset-0 rounded-full border border-pink-500/50 animate-ping" style={{ animationDuration: '3s' }}></div>
-                  <span className="text-4xl font-light text-white">20:00</span>
+                  <div className="absolute inset-0 rounded-full border border-pink-500/30 animate-ping" style={{ animationDuration: '3s' }}></div>
+                  <span className="text-4xl font-light text-slate-900">20:00</span>
                 </motion.div>
                 
-                <div className="text-center space-y-3 glass-effect p-4 rounded-2xl w-full">
-                  <div className="w-10 h-10 bg-pink-500 rounded-xl mx-auto flex items-center justify-center mb-2">
+                <div className="text-center space-y-3 bg-white/80 backdrop-blur-md p-4 rounded-2xl w-full border border-slate-100 shadow-sm">
+                  <div className="w-10 h-10 bg-pink-50 text-pink-600 rounded-xl mx-auto flex items-center justify-center mb-2 border border-pink-100">
                     <span className="text-xl font-bold">!</span>
                   </div>
-                  <h3 className="text-white font-medium">Time for a break</h3>
-                  <p className="text-zinc-400 text-xs text-balance">Look away from your screen for 20 seconds to protect your eyes and mind.</p>
+                  <h3 className="text-slate-900 font-medium">Time for a break</h3>
+                  <p className="text-slate-500 text-xs text-balance">Look away from your screen for 20 seconds to protect your eyes and mind.</p>
                 </div>
 
-                <div className="absolute bottom-8 text-zinc-600 text-[10px] uppercase tracking-widest font-semibold flex items-center gap-2">
-                  <Play size={10} className="fill-zinc-600" /> App Usage Demo
+                <div className="absolute bottom-8 text-slate-400 text-[10px] uppercase tracking-widest font-semibold flex items-center gap-2">
+                  <Play size={10} className="fill-slate-400" /> App Usage Demo
                 </div>
               </div>
             </div>
@@ -131,17 +130,17 @@ function App() {
             <motion.div 
               animate={{ y: [0, 15, 0] }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-              className="absolute -left-12 top-1/3 glass-effect p-4 rounded-2xl backdrop-blur-xl border border-white/10 shadow-xl hidden md:block"
+              className="absolute -left-12 top-1/3 bg-white/90 p-4 rounded-2xl backdrop-blur-xl border border-slate-100 shadow-xl hidden md:block"
             >
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center">
-                  <svg className="w-4 h-4 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <div className="w-8 h-8 rounded-full bg-green-50 flex items-center justify-center">
+                  <svg className="w-4 h-4 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                   </svg>
                 </div>
                 <div>
-                  <p className="text-white text-sm font-medium">100% Private</p>
-                  <p className="text-zinc-400 text-xs">No data leaves your device</p>
+                  <p className="text-slate-900 text-sm font-medium">100% Private</p>
+                  <p className="text-slate-500 text-xs">No data leaves your device</p>
                 </div>
               </div>
             </motion.div>

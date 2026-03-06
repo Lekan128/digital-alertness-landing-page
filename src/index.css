@@ -3,29 +3,28 @@
 @theme {
   --color-primary: #EC4899;
   --color-primary-dark: #BE185D;
-  --color-secondary: #1F2937;
-  --color-secondary-light: #374151;
-  --color-background-dark: #000000;
-  --color-surface-dark: #111111;
-  --color-surface-light: #F9FAFB;
+  --color-secondary: #0F172A;
+  --color-secondary-light: #334155;
+  --color-background-light: #F8F9FA;
+  --color-surface-light: #FFFFFF;
 }
 
 :root {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  color-scheme: dark light;
+  color-scheme: light;
 }
 
 body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--color-background-dark);
-  color: white;
+  background-color: var(--color-background-light);
+  color: var(--color-secondary);
 }
 
 .glass-effect {
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.05);
 }
