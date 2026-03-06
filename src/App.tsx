@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Play, ArrowRight, BrainCircuit, Activity, Eye, ShieldCheck } from 'lucide-react';
+import { Play, ArrowRight, BrainCircuit, Activity, Eye, ShieldCheck, Mail } from 'lucide-react';
 import { motion } from 'framer-motion';
 import appIcon from '../assets/images/app icon.png';
 import Research from './Research';
@@ -57,7 +57,7 @@ function App() {
             
             <div className="flex flex-col sm:flex-row gap-4 mt-4">
               <a 
-                href="#"
+                href="https://play.google.com/store/apps/details?id=io.github.lekan128.digital_wellness"
                 className="group relative flex items-center justify-center gap-3 bg-[var(--color-primary)] hover:bg-[var(--color-primary-dark)] transition-all duration-300 text-white px-8 py-4 rounded-2xl font-semibold shadow-[0_4px_14px_rgba(236,72,153,0.3)] hover:shadow-[0_6px_20px_rgba(236,72,153,0.4)] active:scale-95"
               >
                 <div className="bg-white/20 p-1.5 rounded-full">
@@ -351,6 +351,86 @@ function App() {
           </div>
         </div>
       </section>
+
+      {/* Waitlist Section */}
+      <section className="py-24 bg-pink-500 relative z-10 overflow-hidden text-center">
+        {/* Decorative Circles */}
+        <div className="absolute top-[-50%] left-[-10%] w-[400px] h-[400px] bg-pink-400/30 rounded-full blur-3xl pointer-events-none"></div>
+        <div className="absolute bottom-[-50%] right-[-10%] w-[300px] h-[300px] bg-rose-400/30 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div className="container mx-auto px-6 md:px-12 relative z-10">
+          <div className="max-w-2xl mx-auto">
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-6">
+              Waiting for iOS?
+            </h2>
+            <p className="text-pink-50 text-lg mb-10 leading-relaxed max-w-lg mx-auto">
+              We're crafting the perfect Apple ecosystem experience. Join the waitlist to be notified the moment we launch.
+            </p>
+
+            <form 
+              onSubmit={(e) => { e.preventDefault(); alert("Thanks for joining! We'll be in touch."); }} 
+              className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto"
+            >
+              <div className="relative flex-grow">
+                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                  <Mail className="h-5 w-5 text-slate-400" />
+                </div>
+                <input 
+                  type="email" 
+                  required 
+                  placeholder="Enter your email address" 
+                  className="w-full pl-11 pr-4 py-4 rounded-2xl border-0 ring-1 ring-inset ring-pink-400 bg-white shadow-sm focus:ring-2 focus:ring-inset focus:ring-rose-300 text-slate-900 placeholder:text-slate-400 outline-none transition-shadow"
+                />
+              </div>
+              <button 
+                type="submit" 
+                className="bg-slate-900 hover:bg-slate-800 text-white px-8 py-4 rounded-2xl font-semibold transition-colors shadow-lg shadow-slate-900/20 active:scale-95 whitespace-nowrap"
+              >
+                Join Waitlist
+              </button>
+            </form>
+            <p className="text-pink-200 text-xs mt-4">We respect your inbox. No spam, ever.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-white py-12 border-t border-slate-100 relative z-10">
+        <div className="container mx-auto px-6 md:px-12">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+            
+            <div className="flex items-center gap-3">
+              <img src={appIcon} alt="Digital Alertness Logo" className="w-8 h-8 object-contain grayscale opacity-60" />
+              <span className="font-semibold text-slate-900 tracking-tight">Digital Alertness</span>
+            </div>
+
+            <div className="flex flex-wrap justify-center gap-6 text-sm font-medium">
+              <a href="#" className="text-pink-600 hover:text-pink-700 transition-colors">Privacy Policy (PbD)</a>
+              <a href="#" className="text-slate-500 hover:text-slate-800 transition-colors">Terms of Service</a>
+              <a href="#" className="text-slate-500 hover:text-slate-800 transition-colors">Contact Us</a>
+            </div>
+            
+            <div className="text-slate-400 text-sm">
+              &copy; {new Date().getFullYear()} Digital Alertness. All rights reserved.
+            </div>
+
+          </div>
+        </div>
+      </footer>
+
+      {/* Sticky Bottom CTA (Mobile heavily focused) */}
+      <div className="fixed bottom-0 left-0 w-full p-4 bg-white/80 backdrop-blur-md border-t border-slate-200/50 z-50 flex justify-center sm:hidden animate-in slide-in-from-bottom-full duration-500">
+         <a 
+          href="https://play.google.com/store/apps/details?id=io.github.lekan128.digital_wellness"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-full flex items-center justify-center gap-2 bg-[var(--color-primary)] hover:bg-[var(--color-primary-dark)] text-white px-6 py-3.5 rounded-2xl font-semibold shadow-lg shadow-pink-500/30 active:scale-95 transition-all text-sm"
+        >
+          <Play size={16} className="fill-white" />
+          Get it on Google Play
+        </a>
+      </div>
+
     </div>
   );
 }

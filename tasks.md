@@ -17,4 +17,8 @@
   - [x] Add Behavioral Nudges info
   - [x] Add Customization details
   - [x] Add "Read the Science" button & page
-- [ ] 4. Waitlist & Polish -> `[ / ]` In Progress
+- [x] 4. Waitlist & Polish -> `[ x ]` Completed
+  - [x] Add Sticky Bottom Bar (mobile CTA)
+  - [x] Add iOS Waitlist section
+  - [x] Add Footer (Privacy Policy, terms, contact)
+  - [x] Final responsive polish
