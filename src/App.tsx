@@ -3,6 +3,9 @@ import { Play, ArrowRight, BrainCircuit, Activity, Eye, ShieldCheck, Mail } from
 import { motion } from 'framer-motion';
 import appIcon from '../assets/images/app icon.png';
 import Research from './Research';
+import notification from '../assets/images/notification.png';
+import DigitalWellnessAlert from './DigitalWellnessAlert';
+import video from '../assets/videos/video showing app use.mp4';
 
 function App() {
   const [showIosAlert, setShowIosAlert] = useState(false);
@@ -115,7 +118,8 @@ function App() {
                   className="w-32 h-32 rounded-full border-4 border-pink-500/20 flex items-center justify-center shadow-[0_0_20px_rgba(236,72,153,0.1)] relative mb-12 bg-white"
                 >
                   <div className="absolute inset-0 rounded-full border border-pink-500/30 animate-ping" style={{ animationDuration: '3s' }}></div>
-                  <span className="text-4xl font-light text-slate-900">20:00</span>
+                  {/* <span className="text-4xl font-light text-slate-900"><DigitalWellnessAlert/></span> */}
+                  <span className="text-4xl font-light text-slate-900"><img src={notification} alt="App Icon" className="w-10 h-10 object-contain"/></span>
                 </motion.div>
                 
                 <div className="text-center space-y-3 bg-white/80 backdrop-blur-md p-4 rounded-2xl w-full border border-slate-100 shadow-sm">
@@ -418,7 +422,7 @@ function App() {
         </div>
       </footer>
 
-      {/* Sticky Bottom CTA (Mobile heavily focused) */}
+      {/* Sticky Bottom CTA (Mobile heavily focused) sm:hidden */}
       <div className="fixed bottom-0 left-0 w-full p-4 bg-white/80 backdrop-blur-md border-t border-slate-200/50 z-50 flex justify-center sm:hidden animate-in slide-in-from-bottom-full duration-500">
          <a 
           href="https://play.google.com/store/apps/details?id=io.github.lekan128.digital_wellness"
