@@ -8,8 +8,13 @@
   - [x] Create sleek, millionaire-dollar Apple-style UI
   - [x] Build Hero Section with Headline, Subhead, and primary/secondary CTAs
   - [x] Build visual placeholder for app usage video
-- [ ] 2. Privacy & Comparison -> `[ / ]` In Progress
-  - [ ] Privacy by Design section
-  - [ ] Competitive Advantage table
-- [ ] 3. Research & Science
-- [ ] 4. Waitlist & Polish
+- [x] 2. Privacy & Comparison -> `[ x ]` Completed
+  - [x] Privacy by Design section
+  - [x] Competitive Advantage table
+- [x] 3. Research & Science -> `[ x ]` Completed
+  - [x] Add The Problem stat
+  - [x] Add The Solution (20-20-20 rule)
+  - [x] Add Behavioral Nudges info
+  - [x] Add Customization details
+  - [x] Add "Read the Science" button & page
+- [ ] 4. Waitlist & Polish -> `[ / ]` In Progress
