@@ -3,12 +3,18 @@ import appIcon from '../../assets/images/app icon.png';
 
 const DigitalWellnessAlert = () => {
 return (
-<motion.div
-animate={{ scale: [1, 1.03, 1] }}
-transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-className="w-full relative rounded-full border-4 border-pink-500/20 flex items-center justify-center shadow-[0_0_20px_rgba(236,72,153,0.1)] relative mb-12 bg-white"
->
+  <div>
+  <motion.div
+    animate={{ scale: [1, 1.03, 1] }}
+    transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+    className="w-full relative"
+  >
 {/* Pulsating Glow Behind Notification */}
+
+   <div 
+    className="absolute inset-0 rounded-3xl border border-pink-500/40 animate-ping" 
+    style={{ animationDuration: '3s' }}
+  />
 
   {/* The Notification Card */}
   <div className="relative w-full flex flex-col bg-white/95 backdrop-blur-md rounded-3xl p-3 shadow-lg border border-slate-100/50">
@@ -38,6 +44,15 @@ className="w-full relative rounded-full border-4 border-pink-500/20 flex items-c
     </div>
   </div>
 </motion.div>
+
+    {/* <div className="text-center space-y-3 bg-white/80 backdrop-blur-md p-4 rounded-2xl w-full border border-slate-100 shadow-sm">
+      <div className="w-10 h-10 bg-pink-50 text-pink-600 rounded-xl mx-auto flex items-center justify-center mb-2 border border-pink-100">
+        <span className="text-xl font-bold">!</span>
+      </div>
+      <h3 className="text-slate-900 font-medium">Time for a break</h3>
+      <p className="text-slate-500 text-xs text-balance">Look away from your screen for 20 seconds to protect your eyes and mind.</p>
+    </div> */}
+  </div>
 );
 };
 
