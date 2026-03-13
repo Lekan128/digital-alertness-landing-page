@@ -2,39 +2,15 @@
 
 ## Stages
 - [x] 1. Setup & Hero -> `[ x ]` Completed
-  - [x] Initialize React/Vite/Tailwind project
-  - [x] Extract colors from app icon.png
-  - [x] Apply CSS variables
-  - [x] Create sleek, millionaire-dollar Apple-style UI
-  - [x] Build Hero Section with Headline, Subhead, and primary/secondary CTAs
-  - [x] Build visual placeholder for app usage video
 - [x] 2. Privacy & Comparison -> `[ x ]` Completed
-  - [x] Privacy by Design section
-  - [x] Competitive Advantage table
 - [x] 3. Research & Science -> `[ x ]` Completed
-  - [x] Add The Problem stat
-  - [x] Add The Solution (20-20-20 rule)
-  - [x] Add Behavioral Nudges info
-  - [x] Add Customization details
-  - [x] Add "Read the Science" button & page
 - [x] 4. Waitlist & Polish -> `[ x ]` Completed
-  - [x] Add Sticky Bottom Bar (mobile CTA)
-  - [x] Add iOS Waitlist section
-  - [x] Add Footer (Privacy Policy, terms, contact)
-  - [x] Final responsive polish
 - [x] 5. Modular Refactor -> `[ x ]` Completed
-  - [x] Extract DigitalWellnessAlert component
-  - [x] Extract Hero Section component
-  - [x] Clean up App.tsx to just be layout wrapper
 - [x] 6. Routing & Forms -> `[ x ]` Completed
-  - [x] Install React Router
-  - [x] Configure .env and Web3Forms access key
-  - [x] Implement Routing in App.tsx
-  - [x] Create ContactModal component
-  - [x] Refactor and create WaitlistSection component
 - [x] 7. Deep Modularization -> `[ x ]` Completed
-  - [x] Create PrivacySection component
-  - [x] Create ComparisonSection component
-  - [x] Create ResearchSection component
-  - [x] Create FooterSection component
-  - [x] Replace code chunks in App.tsx with modular imports
+- [x] 8. Pages & Final Polish -> `[ x ]` Completed
+  - [x] Lift ContactModal state up to fix z-index overlay issue
+  - [x] Add scroll-to-top on page load in ResearchPage
+  - [x] Create src/pages directory (HomePage, ResearchPage)
+  - [x] Update Footer with external link icons and trigger ContactModal
+  - [x] Route '/' to HomePage and '/research' to ResearchPage

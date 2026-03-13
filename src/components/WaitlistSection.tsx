@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { Mail } from 'lucide-react';
-import ContactModal from './ContactModal';
 
-const WaitlistSection = () => {
-  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+interface WaitlistSectionProps {
+  onOpenContactModal: () => void;
+}
+
+const WaitlistSection = ({ onOpenContactModal }: WaitlistSectionProps) => {
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -87,13 +89,12 @@ const WaitlistSection = () => {
           <div className="text-pink-100 text-sm mt-8 space-y-1">
             <p>We respect your inbox. No spam, ever.</p>
             <p className="opacity-80">
-              Have a question? <button onClick={() => setIsContactModalOpen(true)} className="font-semibold text-white hover:underline underline-offset-2">Get in touch</button>
+              Have a question? <button type="button" onClick={onOpenContactModal} className="font-semibold text-white hover:underline underline-offset-2">Get in touch</button>
             </p>
           </div>
         </div>
       </div>
       
-      <ContactModal isOpen={isContactModalOpen} onClose={() => setIsContactModalOpen(false)} />
     </section>
   );
 };

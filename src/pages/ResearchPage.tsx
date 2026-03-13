@@ -1,17 +1,21 @@
 import { ArrowLeft, BookOpen, Clock, ShieldCheck, Settings } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
-interface ResearchProps {
-  onBack: () => void;
-}
+export default function ResearchPage() {
+  const navigate = useNavigate();
 
-export default function Research({ onBack }: ResearchProps) {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="min-h-screen bg-[#F8F9FA] text-slate-900 font-sans selection:bg-pink-500/30">
       {/* Navigation */}
       <nav className="w-full sticky top-0 bg-white/80 backdrop-blur-md border-b border-slate-200/50 z-50 py-4 px-6 md:px-12">
         <button 
-          onClick={onBack}
+          onClick={() => navigate('/')}
           className="flex items-center gap-2 text-slate-600 hover:text-pink-600 font-medium transition-colors"
         >
           <ArrowLeft size={18} />
