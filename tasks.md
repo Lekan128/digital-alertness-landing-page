@@ -26,3 +26,9 @@
   - [x] Extract DigitalWellnessAlert component
   - [x] Extract Hero Section component
   - [x] Clean up App.tsx to just be layout wrapper
+- [x] 6. Routing & Forms -> `[ x ]` Completed
+  - [x] Install React Router
+  - [x] Configure .env and Web3Forms access key
+  - [x] Implement Routing in App.tsx
+  - [x] Create ContactModal component
+  - [x] Refactor and create WaitlistSection component
