@@ -32,3 +32,9 @@
   - [x] Implement Routing in App.tsx
   - [x] Create ContactModal component
   - [x] Refactor and create WaitlistSection component
+- [x] 7. Deep Modularization -> `[ x ]` Completed
+  - [x] Create PrivacySection component
+  - [x] Create ComparisonSection component
+  - [x] Create ResearchSection component
+  - [x] Create FooterSection component
+  - [x] Replace code chunks in App.tsx with modular imports
