@@ -8,8 +8,7 @@ const Navbar = () => {
 
   useEffect(() => {
     const userAgent = navigator.userAgent || navigator.vendor || (window as any).opera;
-    console.log(userAgent);
-    if (/android/i.test(userAgent)) {
+    if (/android/i.test(userAgent) && /mobi/i.test(userAgent)) {
       setOs('android');
     } else if (/iPad|iPhone|iPod/.test(userAgent) && !(window as any).MSStream) {
       setOs('ios');
@@ -28,10 +27,21 @@ const Navbar = () => {
     }
   };
 
+//   const scrollToWaitlist = () => {
+//     document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' });
+//     setShowDropdown(false);
+//   };
   const scrollToWaitlist = () => {
-    document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' });
+    const element = document.getElementById('waitlist');
+    const navbarHeight = 80; // Adjust this to match your Navbar height
+
+    if (element) {
+        const top = element.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+        window.scrollTo({ top, behavior: 'smooth' });
+    }
+    
     setShowDropdown(false);
-  };
+};
 
   return (
     <nav className="fixed top-0 left-0 w-full z-50 py-4 px-6 md:px-12 bg-white/70 backdrop-blur-md border-b border-slate-200/50 transition-all duration-300">
