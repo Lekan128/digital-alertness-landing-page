@@ -9,7 +9,7 @@ const Hero = () => {
   return (
     <>
       {/* Hero Section */}
-      <main className="relative z-10 container mx-auto px-6 md:px-12 pt-32 pb-20 min-h-screen flex flex-col justify-center">
+      <main className="relative z-10 container mx-auto px-6 md:px-12 pt-10 pb-20 min-h-screen flex flex-col justify-center">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           
           {/* Text Content */}

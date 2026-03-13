@@ -10,9 +10,9 @@
 - [x] 7. Deep Modularization -> `[ x ]` Completed
 - [x] 8. Pages & Final Polish -> `[ x ]` Completed
 - [x] 9. Smart Navbar & OS Detection -> `[ x ]` Completed
-  - [x] Add waitlist ID to WaitlistSection
-  - [x] Create Navbar component with glassmorphism and fixed top
-  - [x] Implement OS detection logic (Android/iOS)
-  - [x] Build responsive Navbar UI (desktop buttons, mobile dropdown)
-  - [x] Strip old nav from Hero and apply padding
-  - [x] Inject Navbar into HomePage
+- [x] 10. Legal Pages & Fixes -> `[ x ]` Completed
+  - [x] Fix Hero padding and Waitlist scroll-margin
+  - [x] Create PrivacyPolicyPage.tsx
+  - [x] Create TermsOfServicePage.tsx
+  - [x] Update Routing in App.tsx
+  - [x] Hook up Footer links

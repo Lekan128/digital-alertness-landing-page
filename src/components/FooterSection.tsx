@@ -1,4 +1,5 @@
 import { ExternalLink } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import appIcon from '../../assets/images/app icon.png';
 
 interface FooterSectionProps {
@@ -17,12 +18,12 @@ const FooterSection = ({ onOpenContactModal }: FooterSectionProps) => {
           </div>
 
           <div className="flex flex-wrap justify-center gap-6 text-sm font-medium">
-            <a href="#" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-1 text-pink-600 hover:text-pink-700 transition-colors">
+            <Link to="/privacy" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-1 text-pink-600 hover:text-pink-700 transition-colors">
               Privacy Policy (PbD) <ExternalLink size={12} className="opacity-50 group-hover:opacity-100 transition-opacity" />
-            </a>
-            <a href="#" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-1 text-slate-500 hover:text-slate-800 transition-colors">
+            </Link>
+            <Link to="/terms" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-1 text-slate-500 hover:text-slate-800 transition-colors">
               Terms of Service <ExternalLink size={12} className="opacity-50 group-hover:opacity-100 transition-opacity" />
-            </a>
+            </Link>
             <button type="button" onClick={onOpenContactModal} className="text-slate-500 hover:text-slate-800 transition-colors">Contact Us</button>
           </div>
           
