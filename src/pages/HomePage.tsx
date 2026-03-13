@@ -8,11 +8,14 @@ import WaitlistSection from '../components/WaitlistSection';
 import FooterSection from '../components/FooterSection';
 import ContactModal from '../components/ContactModal';
 
+import Navbar from '../components/Navbar';
+
 export default function HomePage() {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-[#F8F9FA] text-slate-900 selection:bg-pink-500/30 overflow-hidden relative font-sans">
+    <div className="min-h-screen bg-[#F8F9FA] text-slate-900 selection:bg-pink-500/30 overflow-hidden relative font-sans pt-20">
+      <Navbar />
       
       {/* Background Glow Effects */}
       <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] bg-pink-500/10 blur-[120px] rounded-full pointer-events-none" />

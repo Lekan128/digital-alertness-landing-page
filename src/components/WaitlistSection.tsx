@@ -33,7 +33,7 @@ const WaitlistSection = ({ onOpenContactModal }: WaitlistSectionProps) => {
   };
 
   return (
-    <section className="py-24 bg-pink-500 relative z-10 overflow-hidden text-center">
+    <section id="waitlist" className="py-24 bg-pink-500 relative z-10 overflow-hidden text-center">
       {/* Decorative Circles */}
       <div className="absolute top-[-50%] left-[-10%] w-[400px] h-[400px] bg-pink-400/30 rounded-full blur-3xl pointer-events-none"></div>
       <div className="absolute bottom-[-50%] right-[-10%] w-[300px] h-[300px] bg-rose-400/30 rounded-full blur-3xl pointer-events-none"></div>

@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Play } from 'lucide-react';
 import { motion } from 'framer-motion';
-import appIcon from '../../assets/images/app icon.png';
 import DigitalWellnessAlert from './DigitalWellnessAlert';
 
 const Hero = () => {
@@ -9,14 +8,6 @@ const Hero = () => {
 
   return (
     <>
-      {/* Navigation Bar */}
-      <nav className="w-full absolute top-0 left-0 py-6 px-6 md:px-12 flex items-center justify-between z-10 bg-white/60 backdrop-blur-md border-b border-slate-200/50">
-        <div className="flex items-center gap-3">
-          <img src={appIcon} alt="Digital Alertness Logo" className="w-10 h-10 object-contain drop-shadow-[0_0_10px_rgba(236,72,153,0.2)]" />
-          <span className="font-semibold text-lg tracking-tight">Digital Alertness</span>
-        </div>
-      </nav>
-
       {/* Hero Section */}
       <main className="relative z-10 container mx-auto px-6 md:px-12 pt-32 pb-20 min-h-screen flex flex-col justify-center">
         <div className="grid lg:grid-cols-2 gap-16 items-center">

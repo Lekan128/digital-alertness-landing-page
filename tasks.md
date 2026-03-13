@@ -9,8 +9,10 @@
 - [x] 6. Routing & Forms -> `[ x ]` Completed
 - [x] 7. Deep Modularization -> `[ x ]` Completed
 - [x] 8. Pages & Final Polish -> `[ x ]` Completed
-  - [x] Lift ContactModal state up to fix z-index overlay issue
-  - [x] Add scroll-to-top on page load in ResearchPage
-  - [x] Create src/pages directory (HomePage, ResearchPage)
-  - [x] Update Footer with external link icons and trigger ContactModal
-  - [x] Route '/' to HomePage and '/research' to ResearchPage
+- [x] 9. Smart Navbar & OS Detection -> `[ x ]` Completed
+  - [x] Add waitlist ID to WaitlistSection
+  - [x] Create Navbar component with glassmorphism and fixed top
+  - [x] Implement OS detection logic (Android/iOS)
+  - [x] Build responsive Navbar UI (desktop buttons, mobile dropdown)
+  - [x] Strip old nav from Hero and apply padding
+  - [x] Inject Navbar into HomePage
