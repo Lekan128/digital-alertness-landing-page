@@ -1,9 +1,21 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Play, ArrowDown } from 'lucide-react';
 import appIcon from '../../assets/images/app icon.png';
 
 const Navbar = () => {
   const [showDropdown, setShowDropdown] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleOutsideClick = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setShowDropdown(false);
+      }
+    };
+    document.addEventListener('mousedown', handleOutsideClick);
+    return () => document.removeEventListener('mousedown', handleOutsideClick);
+  }, []);
+
   const [os] = useState<'ios' | 'android' | 'other'>(() => {
     if (typeof window === 'undefined') return 'other';
     const userAgent = navigator.userAgent || navigator.vendor || (window as unknown as { opera?: string }).opera || '';
@@ -71,7 +83,7 @@ const Navbar = () => {
         </div>
 
         {/* Right Side: Mobile Single Action & Dropdown */}
-        <div className="md:hidden relative">
+        <div className="md:hidden relative" ref={dropdownRef}>
           <button 
             onClick={handleMobileAction}
             className="flex items-center gap-2 bg-pink-500 hover:bg-pink-600 text-white px-5 py-2.5 rounded-xl font-semibold shadow-md shadow-pink-500/20 active:scale-95 transition-all text-sm"
