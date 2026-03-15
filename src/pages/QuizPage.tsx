@@ -1,7 +1,5 @@
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronLeft, X } from 'lucide-react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const QUESTIONS = [
   {
@@ -45,11 +43,18 @@ const QUESTIONS = [
   }
 ];
 
+
+import QuizResultModal from '../components/QuizResultModal';
+
 const QuizPage = () => {
   const [answers, setAnswers] = useState<Record<string, number>>({});
   const [showModal, setShowModal] = useState(false);
   const [score, setScore] = useState(0);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const handleSelect = (questionId: string, points: number) => {
     setAnswers(prev => ({
@@ -70,18 +75,8 @@ const QuizPage = () => {
   const allAnswered = Object.keys(answers).length === QUESTIONS.length;
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900 font-sans pb-20">
-      {/* Header */}
-      <header className="sticky top-0 z-40 bg-white/80 backdrop-blur-md border-b border-slate-200">
-        <div className="container mx-auto px-6 h-16 flex items-center">
-          <Link to="/" className="text-slate-500 hover:text-slate-900 transition-colors flex items-center gap-1 group">
-            <ChevronLeft size={20} className="group-hover:-translate-x-1 transition-transform" />
-            <span className="font-medium">Back</span>
-          </Link>
-        </div>
-      </header>
-
-      <main className="container mx-auto px-6 max-w-2xl mt-12">
+    <div className="min-h-screen bg-slate-50 text-slate-900 font-sans pb-20 pt-12 md:pt-20">
+      <main className="container mx-auto px-6 max-w-2xl">
         <div className="text-center mb-12">
           <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 mb-4">
             30-Second Phone Habit Check
@@ -136,59 +131,14 @@ const QuizPage = () => {
       </main>
 
       {/* Modal */}
-      <AnimatePresence>
-        {showModal && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-sm">
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.95, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              className="bg-white rounded-[2rem] p-8 max-w-md w-full shadow-2xl relative"
-            >
-              <button 
-                onClick={() => setShowModal(false)}
-                className="absolute top-6 right-6 text-slate-400 hover:text-slate-600 transition-colors"
-                aria-label="Close modal"
-              >
-                <X size={24} />
-              </button>
-              
-              <div className="text-center mb-8 mt-4">
-                <div className="w-16 h-16 bg-pink-100 text-pink-500 rounded-full flex items-center justify-center mx-auto mb-6 text-2xl font-bold">
-                  {score}/12
-                </div>
-                <h3 className="text-2xl font-bold text-slate-900 mb-3">
-                  {score >= 8 ? 'Your phone is taking over.' : score >= 4 ? 'You are somewhat distracted.' : 'You are mostly mindful!'}
-                </h3>
-                <p className="text-slate-600">
-                  {score >= 8 
-                    ? "Based on your answers, you often lose track of time on your device. Digital Wellness is designed exactly for you to gently break the doom-scroll loop."
-                    : score >= 4 
-                    ? "You have moments where you fall down the rabbit hole. A gentle 20-minute nudge could help you stay perfectly balanced."
-                    : "You have great control over your digital habits! Digital Wellness could still be a nice safety net to have just in case."}
-                </p>
-              </div>
-              
-              <div className="flex flex-col gap-3">
-                <a 
-                  href="https://play.google.com/store/apps/details?id=io.github.lekan128.digital_wellness" 
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full py-4 bg-[var(--color-primary)] hover:bg-[var(--color-primary-dark)] text-white rounded-xl font-semibold text-center transition-colors shadow-[0_4px_14px_rgba(236,72,153,0.3)]"
-                >
-                  Get the app
-                </a>
-                <button
-                  onClick={() => navigate('/')}
-                  className="w-full py-4 text-slate-500 hover:text-slate-800 font-medium transition-colors"
-                >
-                  Return home
-                </button>
-              </div>
-            </motion.div>
-          </div>
-        )}
-      </AnimatePresence>
+      {showModal && (
+        <QuizResultModal 
+          score={score}
+          lastQuestionAnswer={answers['q4'] || 0}
+          onClose={() => setShowModal(false)}
+          onReturnHome={() => navigate('/')}
+        />
+      )}
     </div>
   );
 };

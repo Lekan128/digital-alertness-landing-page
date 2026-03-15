@@ -1,27 +1,25 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Play, ArrowDown } from 'lucide-react';
 import appIcon from '../../assets/images/app icon.png';
 
 const Navbar = () => {
   const [showDropdown, setShowDropdown] = useState(false);
-  const [os, setOs] = useState<'android' | 'ios' | 'unknown'>('unknown');
-
-  useEffect(() => {
-    const userAgent = navigator.userAgent || navigator.vendor || (window as any).opera;
+  const [os] = useState<'ios' | 'android' | 'other'>(() => {
+    if (typeof window === 'undefined') return 'other';
+    const userAgent = navigator.userAgent || navigator.vendor || (window as unknown as { opera?: string }).opera || '';
     if (/android/i.test(userAgent) && /mobi/i.test(userAgent)) {
-      setOs('android');
-    } else if (/iPad|iPhone|iPod/.test(userAgent) && !(window as any).MSStream) {
-      setOs('ios');
-    } else {
-      setOs('unknown');
+      return 'android';
+    } else if (/iPad|iPhone|iPod/.test(userAgent) && !(window as unknown as { MSStream?: unknown }).MSStream) {
+      return 'ios';
     }
-  }, []);
+    return 'other';
+  });
 
   const handleMobileAction = () => {
     if (os === 'android') {
       window.open('https://play.google.com/store/apps/details?id=io.github.lekan128.digital_wellness', '_blank');
     } else if (os === 'ios') {
-      document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' });
+      scrollToWaitlist();
     } else {
       setShowDropdown(!showDropdown);
     }
