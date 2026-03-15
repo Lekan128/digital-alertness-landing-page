@@ -3,6 +3,7 @@ import HomePage from './pages/HomePage';
 import ResearchPage from './pages/ResearchPage';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import TermsOfServicePage from './pages/TermsOfServicePage';
+import QuizPage from './pages/QuizPage';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Route path="/research" element={<ResearchPage />} />
       <Route path="/privacy" element={<PrivacyPolicyPage />} />
       <Route path="/terms" element={<TermsOfServicePage />} />
+      <Route path="/fit" element={<QuizPage />} />
     </Routes>
   );
 }

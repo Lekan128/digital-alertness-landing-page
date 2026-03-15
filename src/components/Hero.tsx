@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Play } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import DigitalWellnessAlert from './DigitalWellnessAlert';
 
 const Hero = () => {
@@ -59,6 +60,16 @@ const Hero = () => {
                 </svg>
                 <span>iOS Coming Soon</span>
               </button>
+            </div>
+            
+            <div className="mt-2">
+              <Link 
+                to="/fit" 
+                className="text-slate-500 hover:text-pink-500 font-medium transition-colors duration-200 inline-flex items-center gap-1 group"
+              >
+                Not sure? Take the 30-second quiz
+                <span className="group-hover:translate-x-1 transition-transform duration-200">➔</span>
+              </Link>
             </div>
             
             {showIosAlert && (
