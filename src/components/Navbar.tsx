@@ -1,27 +1,37 @@
-import { useState, useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Play, ArrowDown } from 'lucide-react';
 import appIcon from '../../assets/images/app icon.png';
 
 const Navbar = () => {
   const [showDropdown, setShowDropdown] = useState(false);
-  const [os, setOs] = useState<'android' | 'ios' | 'unknown'>('unknown');
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const userAgent = navigator.userAgent || navigator.vendor || (window as any).opera;
-    if (/android/i.test(userAgent) && /mobi/i.test(userAgent)) {
-      setOs('android');
-    } else if (/iPad|iPhone|iPod/.test(userAgent) && !(window as any).MSStream) {
-      setOs('ios');
-    } else {
-      setOs('unknown');
-    }
+    const handleOutsideClick = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setShowDropdown(false);
+      }
+    };
+    document.addEventListener('mousedown', handleOutsideClick);
+    return () => document.removeEventListener('mousedown', handleOutsideClick);
   }, []);
+
+  const [os] = useState<'ios' | 'android' | 'other'>(() => {
+    if (typeof window === 'undefined') return 'other';
+    const userAgent = navigator.userAgent || navigator.vendor || (window as unknown as { opera?: string }).opera || '';
+    if (/android/i.test(userAgent) && /mobi/i.test(userAgent)) {
+      return 'android';
+    } else if (/iPad|iPhone|iPod/.test(userAgent) && !(window as unknown as { MSStream?: unknown }).MSStream) {
+      return 'ios';
+    }
+    return 'other';
+  });
 
   const handleMobileAction = () => {
     if (os === 'android') {
       window.open('https://play.google.com/store/apps/details?id=io.github.lekan128.digital_wellness', '_blank');
     } else if (os === 'ios') {
-      document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' });
+      scrollToWaitlist();
     } else {
       setShowDropdown(!showDropdown);
     }
@@ -41,7 +51,7 @@ const Navbar = () => {
     }
     
     setShowDropdown(false);
-};
+  };
 
   return (
     <nav className="fixed top-0 left-0 w-full z-50 py-4 px-6 md:px-12 bg-white/70 backdrop-blur-md border-b border-slate-200/50 transition-all duration-300">
@@ -73,7 +83,7 @@ const Navbar = () => {
         </div>
 
         {/* Right Side: Mobile Single Action & Dropdown */}
-        <div className="md:hidden relative">
+        <div className="md:hidden relative" ref={dropdownRef}>
           <button 
             onClick={handleMobileAction}
             className="flex items-center gap-2 bg-pink-500 hover:bg-pink-600 text-white px-5 py-2.5 rounded-xl font-semibold shadow-md shadow-pink-500/20 active:scale-95 transition-all text-sm"
