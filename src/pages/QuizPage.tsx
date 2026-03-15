@@ -45,6 +45,7 @@ const QUESTIONS = [
 
 
 import QuizResultModal from '../components/QuizResultModal';
+import QuizProgressBar from '../components/QuizProgressBar';
 
 const QuizPage = () => {
   const [answers, setAnswers] = useState<Record<string, number>>({});
@@ -54,7 +55,6 @@ const QuizPage = () => {
 
   const allAnswered = Object.keys(answers).length === QUESTIONS.length;
   const answeredCount = Object.keys(answers).length;
-  const progressPercentage = (answeredCount / QUESTIONS.length) * 100;
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -97,25 +97,9 @@ const QuizPage = () => {
           <p className="text-lg text-slate-500 mb-8">
             Find out if your phone is stealing your time.
           </p>
-
-          {/* Progress Indicator */}
-          <div className="max-w-md mx-auto text-left">
-            <div className="flex justify-between items-end mb-2">
-              <span className="text-sm font-semibold text-slate-700 uppercase tracking-wider">
-                Question {answeredCount} of {QUESTIONS.length}
-              </span>
-              <span className="text-xs font-medium text-pink-500 bg-pink-50 px-2 py-0.5 rounded-full">
-                {Math.round(progressPercentage)}%
-              </span>
-            </div>
-            <div className="w-full h-2 bg-slate-200 rounded-full overflow-hidden">
-              <div 
-                className="h-full bg-[var(--color-primary)] rounded-full transition-all duration-500 ease-out"
-                style={{ width: `${progressPercentage}%` }}
-              ></div>
-            </div>
-          </div>
         </div>
+
+        <QuizProgressBar current={answeredCount} total={QUESTIONS.length} />
 
         <div className="space-y-10">
           {QUESTIONS.map((q, index) => (
@@ -157,7 +141,7 @@ const QuizPage = () => {
             }`}
           >
             See my result
-            <span className="text-white/60 text-sm hidden sm:inline-block ml-1 bg-white/10 px-2 py-0.5 rounded font-normal">Press Enter ↵</span>
+            <span className="text-white/60 text-sm hidden sm:inline-block ml-1 bg-white/10 px-2 py-0.5 rounded font-normal">↵</span>
           </button>
         </div>
       </main>
