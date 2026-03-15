@@ -52,16 +52,13 @@ const QuizPage = () => {
   const [score, setScore] = useState(0);
   const navigate = useNavigate();
 
+  const allAnswered = Object.keys(answers).length === QUESTIONS.length;
+  const answeredCount = Object.keys(answers).length;
+  const progressPercentage = (answeredCount / QUESTIONS.length) * 100;
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
-  const handleSelect = (questionId: string, points: number) => {
-    setAnswers(prev => ({
-      ...prev,
-      [questionId]: points
-    }));
-  };
 
   const calculateResults = () => {
     let total = 0;
@@ -72,7 +69,23 @@ const QuizPage = () => {
     setShowModal(true);
   };
 
-  const allAnswered = Object.keys(answers).length === QUESTIONS.length;
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Enter' && allAnswered && !showModal) {
+        calculateResults();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [allAnswered, showModal, answers]); // Depend on answers so calculateResults calculates with latest state
+
+  const handleSelect = (questionId: string, points: number) => {
+    setAnswers(prev => ({
+      ...prev,
+      [questionId]: points
+    }));
+  };
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 font-sans pb-20 pt-12 md:pt-20">
@@ -81,9 +94,27 @@ const QuizPage = () => {
           <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 mb-4">
             30-Second Phone Habit Check
           </h1>
-          <p className="text-lg text-slate-500">
+          <p className="text-lg text-slate-500 mb-8">
             Find out if your phone is stealing your time.
           </p>
+
+          {/* Progress Indicator */}
+          <div className="max-w-md mx-auto text-left">
+            <div className="flex justify-between items-end mb-2">
+              <span className="text-sm font-semibold text-slate-700 uppercase tracking-wider">
+                Question {answeredCount} of {QUESTIONS.length}
+              </span>
+              <span className="text-xs font-medium text-pink-500 bg-pink-50 px-2 py-0.5 rounded-full">
+                {Math.round(progressPercentage)}%
+              </span>
+            </div>
+            <div className="w-full h-2 bg-slate-200 rounded-full overflow-hidden">
+              <div 
+                className="h-full bg-[var(--color-primary)] rounded-full transition-all duration-500 ease-out"
+                style={{ width: `${progressPercentage}%` }}
+              ></div>
+            </div>
+          </div>
         </div>
 
         <div className="space-y-10">
@@ -119,13 +150,14 @@ const QuizPage = () => {
           <button
             onClick={calculateResults}
             disabled={!allAnswered}
-            className={`px-8 py-4 rounded-2xl font-semibold shadow-lg transition-all duration-300 ${
+            className={`px-8 py-4 rounded-2xl font-semibold shadow-lg transition-all duration-300 items-center justify-center gap-2 ${
               allAnswered 
                 ? 'bg-[var(--color-primary)] hover:bg-[var(--color-primary-dark)] text-white shadow-[0_4px_14px_rgba(236,72,153,0.3)] hover:shadow-[0_6px_20px_rgba(236,72,153,0.4)] active:scale-95 cursor-pointer flex' 
                 : 'bg-slate-200 text-slate-400 cursor-not-allowed hidden'
             }`}
           >
             See my result
+            <span className="text-white/60 text-sm hidden sm:inline-block ml-1 bg-white/10 px-2 py-0.5 rounded font-normal">Press Enter ↵</span>
           </button>
         </div>
       </main>
