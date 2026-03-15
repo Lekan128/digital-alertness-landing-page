@@ -86,7 +86,7 @@ const QuizResultModal = ({ score, lastQuestionAnswer, onClose, onReturnHome }: Q
 
     const formData = new FormData(e.currentTarget);
     formData.append("access_key", import.meta.env.VITE_WEB3FORMS_ACCESS_KEY);
-    formData.append("subject", "New Quiz Lead for Digital Alertness");
+    formData.append("subject", tier === 'none' ? "New Habit Insight from User" : "New Quiz Lead for Digital Alertness");
     formData.append("score", score.toString());
     formData.append("tier", tier);
 
@@ -141,7 +141,8 @@ const QuizResultModal = ({ score, lastQuestionAnswer, onClose, onReturnHome }: Q
           iconBg: 'bg-emerald-100',
           title: "You have excellent digital habits!",
           body: "Looks like you already manage your phone use really well. You probably don't need this app!",
-          showDownload: false
+          showDownload: false,
+          showFeedback: true
         };
     }
   };
@@ -252,6 +253,54 @@ const QuizResultModal = ({ score, lastQuestionAnswer, onClose, onReturnHome }: Q
                     </div>
                     {emailStatus === 'error' && (
                       <p className="text-red-500 text-xs mt-1">Oops! Something went wrong.</p>
+                    )}
+                  </form>
+                )}
+              </div>
+            )}
+
+            {/* Habit Feedback Form for 'none' tier */}
+            {content.showFeedback && (
+              <div className="flex flex-col gap-4 mt-2">
+                {emailStatus === 'success' ? (
+                  <div className="bg-emerald-50 border border-emerald-200 text-emerald-700 text-sm rounded-xl p-4 flex items-start gap-3">
+                    <CheckCircle2 size={18} className="mt-0.5 shrink-0" />
+                    <p className="font-medium">Thank you for sharing! We appreciate your insights on staying disciplined.</p>
+                  </div>
+                ) : (
+                  <form onSubmit={handleEmailSubmit} className="flex flex-col gap-3">
+                    <div className="space-y-2">
+                      <p className="text-sm font-semibold text-slate-800">We’d love to learn from you.</p>
+                      <p className="text-xs text-slate-600 leading-relaxed">What tools or habits help you stay disciplined with your phone use?</p>
+                    </div>
+                    
+                    <textarea
+                      name="message"
+                      placeholder="e.g., I use screen time limits, or I keep my phone in another room..."
+                      required
+                      className="w-full p-4 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-sm text-slate-900 placeholder:text-slate-400 outline-none transition-all min-h-[100px] resize-none"
+                    />
+
+                    <div className="relative flex">
+                      <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                        <Mail className="h-4 w-4 text-slate-400" />
+                      </div>
+                      <input
+                        type="email"
+                        name="email"
+                        placeholder="Your email (we'll keep it private)"
+                        className="w-full pl-9 pr-24 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-sm text-slate-900 placeholder:text-slate-400 outline-none transition-all"
+                      />
+                      <button
+                        type="submit"
+                        disabled={emailStatus === 'submitting'}
+                        className="absolute right-1 top-1 bottom-1 bg-slate-900 hover:bg-slate-800 text-white px-4 rounded-lg text-sm font-medium transition-colors disabled:opacity-60"
+                      >
+                        {emailStatus === 'submitting' ? '...' : 'Send'}
+                      </button>
+                    </div>
+                    {emailStatus === 'error' && (
+                      <p className="text-red-500 text-xs mt-1 font-medium px-1">Oops! Something went wrong. Please try again.</p>
                     )}
                   </form>
                 )}
